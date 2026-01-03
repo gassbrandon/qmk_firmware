@@ -513,9 +513,7 @@ uint8_t led_default_rotate_pattern[7] = {  //each instruction group in led_instr
 
 //this runs once when keyboard is plugged in
 void rgb_matrix_init_user(void) {
-    //Set which from led_instruction_list should be default
-    uint8_t index = 0;    // led_instructions_pleasuretek  is position 0 in led_instruction_list  -- change this number to match in led_instruction_list to set default
-    led_instruction_id = index;
-    set_led_animation_id(led_default_rotate_pattern[index]);
-    led_animation_orientation = LED_SCROLL_CENT;
+    rgb_matrix_enable_noeeprom();
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+    rgb_matrix_sethsv_noeeprom(160, 255, 30); // DIM CYAN / ICE BLUE
 }
